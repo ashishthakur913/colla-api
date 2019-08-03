@@ -6,8 +6,8 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo"
-	"github.com/xesina/golang-echo-realworld-example-app/model"
-	"github.com/xesina/golang-echo-realworld-example-app/utils"
+	"github.com/ashishthakur913/project/model"
+	"github.com/ashishthakur913/project/utils"
 )
 
 func (h *Handler) GetArticle(c echo.Context) error {

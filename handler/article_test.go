@@ -9,9 +9,9 @@ import (
 
 	"github.com/labstack/echo"
 	"github.com/stretchr/testify/assert"
-	"github.com/xesina/golang-echo-realworld-example-app/router"
-	"github.com/xesina/golang-echo-realworld-example-app/router/middleware"
-	"github.com/xesina/golang-echo-realworld-example-app/utils"
+	"github.com/ashishthakur913/project/router"
+	"github.com/ashishthakur913/project/router/middleware"
+	"github.com/ashishthakur913/project/utils"
 )
 
 func TestListArticlesCaseSuccess(t *testing.T) {

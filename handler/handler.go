@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/xesina/golang-echo-realworld-example-app/article"
-	"github.com/xesina/golang-echo-realworld-example-app/user"
+	"github.com/ashishthakur913/project/article"
+	"github.com/ashishthakur913/project/user"
 )
 
 type Handler struct {

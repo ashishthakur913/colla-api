@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
-	"github.com/xesina/golang-echo-realworld-example-app/utils"
+	"github.com/ashishthakur913/project/utils"
 	"net/http"
+	"github.com/labstack/gommon/log"
 )
 
 type (
@@ -62,8 +63,10 @@ func JWTWithConfig(config JWTConfig) echo.MiddlewareFunc {
 
 // jwtFromHeader returns a `jwtExtractor` that extracts token from the request header.
 func jwtFromHeader(header string, authScheme string) jwtExtractor {
+	log.Debug(header, "====AUTH")
 	return func(c echo.Context) (string, error) {
 		auth := c.Request().Header.Get(header)
+		log.Debug(auth, "====AUTH")
 		l := len(authScheme)
 		if len(auth) > l+1 && auth[:l] == authScheme {
 			return auth[l+1:], nil

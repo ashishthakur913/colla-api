@@ -10,12 +10,12 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	"github.com/labstack/echo"
-	"github.com/xesina/golang-echo-realworld-example-app/article"
-	"github.com/xesina/golang-echo-realworld-example-app/db"
-	"github.com/xesina/golang-echo-realworld-example-app/model"
-	"github.com/xesina/golang-echo-realworld-example-app/router"
-	"github.com/xesina/golang-echo-realworld-example-app/store"
-	"github.com/xesina/golang-echo-realworld-example-app/user"
+	"github.com/ashishthakur913/project/article"
+	"github.com/ashishthakur913/project/db"
+	"github.com/ashishthakur913/project/model"
+	"github.com/ashishthakur913/project/router"
+	"github.com/ashishthakur913/project/store"
+	"github.com/ashishthakur913/project/user"
 )
 
 var (

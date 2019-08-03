@@ -3,7 +3,7 @@ package handler
 import (
 	"github.com/labstack/echo"
 	"github.com/gosimple/slug"
-	"github.com/xesina/golang-echo-realworld-example-app/model"
+	"github.com/ashishthakur913/project/model"
 )
 
 type userUpdateRequest struct {

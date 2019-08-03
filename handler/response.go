@@ -4,9 +4,9 @@ import (
 	"time"
 
 	"github.com/labstack/echo"
-	"github.com/xesina/golang-echo-realworld-example-app/model"
-	"github.com/xesina/golang-echo-realworld-example-app/user"
-	"github.com/xesina/golang-echo-realworld-example-app/utils"
+	"github.com/ashishthakur913/project/model"
+	"github.com/ashishthakur913/project/user"
+	"github.com/ashishthakur913/project/utils"
 )
 
 type userResponse struct {

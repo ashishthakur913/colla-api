@@ -5,15 +5,17 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"github.com/xesina/golang-echo-realworld-example-app/model"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/ashishthakur913/project/model"
 	"os"
 )
 
 func New() *gorm.DB {
-	db, err := gorm.Open("sqlite3", "./realworld.db")
+	db, err := gorm.Open("mysql", "root:rootroot@tcp(127.0.0.1:3306)/database?parseTime=True")
 	if err != nil {
 		fmt.Println("storage err: ", err)
 	}
+	fmt.Println("ASHISH")
 	db.DB().SetMaxIdleConns(3)
 	db.LogMode(true)
 	return db
