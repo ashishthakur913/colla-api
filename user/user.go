@@ -6,6 +6,7 @@ import (
 
 type Store interface {
 	GetByID(uint) (*model.User, error)
+	GetAll() ([]model.User, error)
 	GetByEmail(string) (*model.User, error)
 	GetByUsername(string) (*model.User, error)
 	Create(*model.User) error

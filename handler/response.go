@@ -11,21 +11,25 @@ import (
 
 type userResponse struct {
 	User struct {
+		UserID uint  	`json:"userId"`
 		Username string  `json:"username"`
 		Email    string  `json:"email"`
 		Bio      *string `json:"bio"`
 		Image    *string `json:"image"`
 		Token    string  `json:"token"`
+		ChatToken string `json:"chatToken"`
 	} `json:"user"`
 }
 
 func newUserResponse(u *model.User) *userResponse {
 	r := new(userResponse)
+	r.User.UserID = u.ID
 	r.User.Username = u.Username
 	r.User.Email = u.Email
 	r.User.Bio = u.Bio
 	r.User.Image = u.Image
 	r.User.Token = utils.GenerateJWT(u.ID)
+	r.User.ChatToken = utils.GenerateChatJWT(u.ID)
 	return r
 }
 
@@ -44,6 +48,18 @@ func newProfileResponse(us user.Store, userID uint, u *model.User) *profileRespo
 	r.Profile.Bio = u.Bio
 	r.Profile.Image = u.Image
 	r.Profile.Following, _ = us.IsFollower(u.ID, userID)
+	return r
+}
+
+type chatTokenResponse struct {
+	Token struct {
+		Value  string  `json:"value"`
+	} `json:"profile"`
+}
+
+func newChatTokenResponse(token string) *chatTokenResponse {
+	r := new(chatTokenResponse)
+	r.Token.Value = token
 	return r
 }
 
@@ -127,6 +143,27 @@ func newArticleListResponse(us user.Store, userID uint, articles []model.Article
 		r.Articles = append(r.Articles, ar)
 	}
 	r.ArticlesCount = count
+	return r
+}
+
+type userListResponse struct {
+	Users      []*userResponse 		`json:"users"`
+	UsersCount int          		`json:"usersCount"`
+}
+
+func newUserListResponse(users []model.User) *userListResponse {
+	r := new(userListResponse)
+	r.Users = make([]*userResponse, 0)
+	for _, a := range users {
+		u := new(userResponse)
+		u.User.UserID = a.ID
+		u.User.Username = a.Username
+		u.User.Email = a.Email
+		u.User.Bio = a.Bio
+		u.User.Image = a.Image
+		r.Users = append(r.Users, u)
+	}
+	r.UsersCount = len(users)
 	return r
 }
 
